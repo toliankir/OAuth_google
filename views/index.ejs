@@ -7,8 +7,44 @@
     <title>Document</title>
 </head>
 <body>
-    Test
-    <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/analytics.readonly+https://www.googleapis.com/auth/userinfo.email&access_type=offline&include_granted_scopes=true&state=state_parameter_passthrough_value&redirect_uri=<%= callback_url %>&response_type=code&client_id=<%= client_id%>">Google</a>
+    <a href="https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email&access_type=offline&include_granted_scopes=true&state=state_parameter_passthrough_value&redirect_uri=<%= callback_url %>&response_type=code&client_id=<%= client_id%>">Google</a>
+<table>
+    <tr>
+        <td>Access token:</td>
+        <td><%= db.access_token%></td>
+    </tr>
+    <tr>
+        <td>Refresh token:</td>
+        <td><%= db.refresh_token %></td>
+    </tr>
+    <tr>
+        <td>ID token:</td>
+        <td><%= db.id_token%></td>
+    </tr>
+    <tr>
+        <td>Token type:</td>
+        <td><%= db.token_type %></td>
+    </tr>
+    <tr>
+        <td>Expires in:</td>
+        <td><%= db.expires_in %></td>
+    </tr>
+</table>
 
+<h3>User data:</h3>
+<table>
+    <tr>
+        <td>ID</td>
+        <td><%= user_data.sub %></td>
+    </tr>
+    <tr>
+        <td>E-mail</td>
+        <td><%= user_data.email %></td>
+    </tr>
+    <tr>
+        <td>Picture</td>
+        <td><img src="<%= user_data.picture%>"></td>
+    </tr>
+</table>
 </body>
 </html>
